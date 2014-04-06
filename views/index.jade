@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  section
+    h2 Liste des articles
+    article(ng-repeat='post in postList') {{ post.title }}
+      input(ng-model='post.title')
+      button(ng-click='appController.save(post)') Save
+      button(ng-click='appController.delete(post)') Delete
+    input(ng-model='post.title')
+    button(ng-click='appController.save(post)') Submit
