@@ -6,37 +6,29 @@ define([], function() {
      * @param {PostManager} PostManager
      * @constructor
      */
-    function AppController($scope, PostManager) {
+    function AppController($scope, PostManager, PostListService) {
         this.$scope = $scope;
         this.PostManager = PostManager;
+        this.PostListService = PostListService;
 
         $scope.post = {};
+        $scope.PostListService = PostListService;
         this.fetchPostList();
     }
 
     AppController.prototype.fetchPostList = function() {
-        var self = this;
-        this.PostManager.list().then(function(response) {
-            self.$scope.postList = response.data;
-        });
+        this.PostListService.fetch();
     };
 
-    AppController.prototype.save = function(post) {
+
+    AppController.prototype.create = function(post) {
         var self = this;
         this.PostManager.save(post).then(function(response) {
-            self.fetchPostList();
+            self.PostListService.fetch();
         });
     };
 
-    AppController.prototype.delete = function(post) {
-        var self = this;
-        this.PostManager.delete(post).then(function(response) {
-            self.fetchPostList();
-            console.log('remove', response);
-        });
-    };
-
-    AppController.$inject = ['$scope', 'PostManager'];
+    AppController.$inject = ['$scope', 'PostManager', 'PostListService'];
 
     return AppController;
 });

@@ -21,7 +21,7 @@ exports.postSave = function(req, res) {
 };
 
 exports.postDelete = function(req, res) {
-    Post.findOne(req.params._id, function(err, post) {
+    Post.findOne({_id: req.params._id}, function(err, post) {
         post.remove(function(err) {
             res.end('removed');
         });

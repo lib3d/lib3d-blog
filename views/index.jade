@@ -1,13 +1,22 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
-  section
-    h2 Liste des articles
-    article(ng-repeat='post in postList') {{ post.title }}
-      input(ng-model='post.title')
-      button(ng-click='appController.save(post)') Save
-      button(ng-click='appController.delete(post)') Delete
-    input(ng-model='post.title')
-    button(ng-click='appController.save(post)') Submit
+    h1= title
+    p Welcome to #{title}
+    section
+        h2 Liste des articles
+        article(ng-repeat='post in PostListService.list | orderBy:"date" track by post._id', post='')
+            h3 {{ post.title }}
+            p {{ post.date }}
+            p {{ post._id }}
+            div
+                button(ng-hide='postController.$editing',ng-click='postController.edit()') Edit
+                div(ng-if='postController.$editing')
+                    form(ng-submit='postController.save(editedPost)')
+                        input(ng-model='editedPost.title')
+                        input(type='submit',value='Save')
+            button(ng-click='postController.delete(post)') Delete
+        article(post='')
+            button(ng-hide='postController.$editing',ng-click='postController.edit(post)') Create
+            form(ng-if='postController.$editing',ng-submit='postController.save(editedPost)')
+                input(ng-model='editedPost.title')
+                input(type='submit',value='Create')
