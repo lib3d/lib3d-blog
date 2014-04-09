@@ -3,26 +3,25 @@ define([], function() {
     /**
      *
      * @param $scope
-     * @param {PostManager} PostManager
+     * @param {Post} Post
      * @param {PostListService} PostListService
      * @constructor
      */
-    function PostController($scope, PostManager, PostListService) {
+    function PostController($scope, Post, PostListService) {
         this.$scope = $scope;
-        this.PostManager = PostManager;
+        this.Post = Post;
         this.PostListService = PostListService;
         this.$editing = false;
     }
 
-    PostController.prototype.edit = function() {
-        this.$scope.editedPost = angular.copy(this.$scope.post);
+    PostController.prototype.edit = function(post) {
+        this.$scope.editedPost = post ? new this.Post(post) : new this.Post();
         this.$editing = true;
     };
 
-
     PostController.prototype.save = function(post) {
         var self = this;
-        this.PostManager.save(post).then(function(response) {
+        post.$save().then(function(response) {
             self.PostListService.fetch();
             self.$editing = false;
         });
@@ -30,12 +29,17 @@ define([], function() {
 
     PostController.prototype.delete = function(post) {
         var self = this;
-        this.PostManager.delete(post).then(function(response) {
+        post.$delete(post).then(function(response) {
             self.PostListService.fetch();
         });
     };
+    
+    PostController.prototype.cancel = function(post) {
+        this.$editing = false;
+        this.$scope.editedPost = null;
+    };
 
-    PostController.$inject = ['$scope', 'PostManager', 'PostListService'];
+    PostController.$inject = ['$scope', 'Post', 'PostListService'];
 
     return PostController;
 

@@ -3,7 +3,7 @@ define(
         'angular',
         './component/controller/AppController',
         './component/controller/PostController',
-        './component/manager/PostManager',
+        './component/resource/Post',
         './component/service/PostListService',
         './component/directive/postDirective'
     ],
@@ -11,16 +11,17 @@ define(
         angular,
         AppController,
         PostController,
-        PostManager,
+        Post,
         PostListService,
         postDirective
         ) {
-        var MainModule = angular.module('main', []);
+
+        var MainModule = angular.module('main', ['ngResource']);
 
         MainModule.controller('AppController', AppController);
         MainModule.controller('PostController', PostController);
 
-        MainModule.service('PostManager', PostManager);
+        MainModule.service('Post', Post);
 
         MainModule.service('PostListService', PostListService);
 

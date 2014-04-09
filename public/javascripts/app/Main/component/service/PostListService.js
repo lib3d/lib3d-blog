@@ -1,18 +1,18 @@
 define([], function() {
 
-    function PostListService(PostManager) {
-        this.PostManager = PostManager;
+    function PostListService(Post) {
+        this.Post = Post;
         this.list = [];
     }
 
     PostListService.prototype.fetch = function() {
         var self = this;
-        this.PostManager.list().then(function(response) {
-            self.list = response.data;
+        this.Post.query().$promise.then(function(posts) {
+            self.list = posts;
         });
     };
 
-    PostListService.$inject = ['PostManager'];
+    PostListService.$inject = ['Post'];
 
     return PostListService;
 })

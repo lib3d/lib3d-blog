@@ -4,16 +4,18 @@ define([], function() {
      * @param {$http} $http
      * @constructor
      */
-    function PostManager($http, $q) {
+    function Post($http, $q, $resource) {
         this.$http = $http;
         this.$q = $q;
+
+        return $resource('/posts/:postId', { postId: '@_id' });
     }
 
-    PostManager.prototype.list = function() {
+    Post.prototype.list = function() {
         return this.$http.get('/posts');
     };
 
-    PostManager.prototype.save = function(post) {
+    Post.prototype.save = function(post) {
         if(post._id) {
             return this.$http.post('/post/' + post._id, post);
         } else {
@@ -21,12 +23,13 @@ define([], function() {
         }
     };
 
-    PostManager.prototype['delete'] = function(post) {
+    Post.prototype['delete'] = function(post) {
         return this.$http.delete('/post/' + post._id);
     };
 
-    PostManager.$inject = ['$http', '$q'];
+    Post.$inject = ['$http', '$q', '$resource'];
 
-    return PostManager;
+
+    return Post;
 
 });

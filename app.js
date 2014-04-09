@@ -41,9 +41,9 @@ var api = require('./routes/api');
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/posts', api.postList);
-app.post('/post/:_id', api.postSave);
-app.post('/post', api.postSave);
-app.delete('/post/:_id', api.postDelete);
+app.post('/posts/:_id', api.postSave);
+app.post('/posts', api.postSave);
+app.delete('/posts/:_id', api.postDelete);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

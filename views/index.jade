@@ -9,11 +9,12 @@ block content
             p {{ post.date }}
             p {{ post._id }}
             div
-                button(ng-hide='postController.$editing',ng-click='postController.edit()') Edit
+                button(ng-hide='postController.$editing',ng-click='postController.edit(post)') Edit
                 div(ng-if='postController.$editing')
                     form(ng-submit='postController.save(editedPost)')
                         input(ng-model='editedPost.title')
                         input(type='submit',value='Save')
+                    button(ng-click='postController.cancel()') Cancel
             button(ng-click='postController.delete(post)') Delete
         article(post='')
             button(ng-hide='postController.$editing',ng-click='postController.edit(post)') Create
