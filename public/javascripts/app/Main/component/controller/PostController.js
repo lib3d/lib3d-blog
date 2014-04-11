@@ -40,6 +40,8 @@ define([], function() {
     };
 
     PostController.$inject = ['$scope', 'Post', 'PostListService'];
+    
+    
 
     return PostController;
 
