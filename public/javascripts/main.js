@@ -19,6 +19,21 @@ require.config({
     }
 });
 
+;(function () {
+    "use strict";
+
+    function updateCache() {
+        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+            window.location.reload();
+        }
+    }
+
+    window.applicationCache.addEventListener('updateready', updateCache, false);
+    updateCache();
+
+})();
+
+
 require(['jQuery', 'angular', 'angular-resource', './app/Main/MainModule'], function($, angular) {
     angular.module('lib3d', ['main']);
 
