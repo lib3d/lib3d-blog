@@ -20,6 +20,14 @@ module.exports = function(grunt) {
                     debounceDelay: 1000
                 }
             },
+            css: {
+                files: ['./public/stylesheets/**/*.less'],
+                tasks: ['manifest'],
+                options: {
+                    livereload: true,
+                    debounceDelay: 1000
+                }
+            },
             views: {
                 files: ['./views/**/*.jade'],
                 tasks: ['manifest'],
