@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Lib3D' });
+  res.render('index', { title: 'Test page' });
 };
