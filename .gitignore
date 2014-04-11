@@ -32,3 +32,6 @@ public/build
 
 # Idea config
 .idea
+
+# Application Cache manifest file
+public/manifest.appcache
