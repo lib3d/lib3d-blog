@@ -12,6 +12,10 @@ define([], function() {
         });
     };
 
+    PostListService.prototype.getPostById = function(id) {
+        return this.Post.get({ postId: id }).$promise;
+    };
+
     PostListService.$inject = ['Post'];
 
     return PostListService;

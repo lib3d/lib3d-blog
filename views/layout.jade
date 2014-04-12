@@ -6,8 +6,9 @@ html(manifest='manifest.appcache')
         link(rel='stylesheet', href='/stylesheets/style.css')
         if process.env.NODE_ENV == 'development'
           script(src='//localhost:35729/livereload.js')
-          script(data-main='/build/main-build', src='/components/requirejs/require.js')
+          script(data-main='/javascripts/main', src='/components/requirejs/require.js')
         else
           script(data-main='/build/main-build', src='/components/requirejs/require.js')
-    body(ng-controller='AppController as appController', class='ng-cloak')
+    body
+        block ng-template
         block content

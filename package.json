@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "npm run-script start-dev",
-    "start-prod": "NODE_ENV=production node app.js",
-    "start-dev": "NODE_ENV=development node app.js",
+    "start-prod": "node app.js production",
+    "start-dev": "node app.js development",
     "build-r": "node node_modules/requirejs/bin/r.js -o build.js"
   },
   "dependencies": {

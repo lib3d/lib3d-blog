@@ -1,0 +1,7 @@
+div.post-action-wrapper
+    button.post-edit(ng-click='postListController.edit(post)') E
+    button.post-delete(ng-click='postListController.delete(post)') D
+div(class='post-content')
+    h3 {{ post.title }}
+    p {{ post.content }}
+.clear

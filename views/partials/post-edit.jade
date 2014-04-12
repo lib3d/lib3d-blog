@@ -1,0 +1,13 @@
+form.post-edit-form(ng-submit='postController.save(editedPost)')
+    div
+        label
+            span Title
+            div.pos-rel
+                input.full-width(ng-model='editedPost.title')
+    div
+        label
+            span Content
+            div.pos-rel
+                textarea.full-width(ng-model='editedPost.content')
+    input(type='submit',value='Save',class='post-save')
+.clear

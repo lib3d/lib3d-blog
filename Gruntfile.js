@@ -43,7 +43,7 @@ module.exports = function(grunt) {
                     mainConfigFile: 'public/javascripts/main.js',
                     name: './main',
                     out: './public/build/main-build.js',
-                    optimize: 'uglify2',
+                    optimize: 'none',
                     preserveLicenseComments: false,
                     generateSourceMaps: true
                 }
@@ -56,7 +56,8 @@ module.exports = function(grunt) {
                     cache: ['../'],
                     verbose: true,
                     timestamp: true,
-                    hash: true
+                    hash: true,
+                    preferOnline: true
                 },
                 src: ['build/main-build.js', 'components/requirejs/require.js', 'stylesheets/*.css'],
                 dest: 'public/manifest.appcache'

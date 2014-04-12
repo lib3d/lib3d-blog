@@ -1,23 +1,16 @@
 extends layout
+block ng-template
+    script#template-page-post-list(type='text/ng-template')
+        include partials/pages/post-list
+    script#template-page-post-edit(type='text/ng-template')
+        include partials/pages/post-edit
+    script#template-post-show(type='text/ng-template')
+        include partials/post-show
+    script#template-post-list(type='text/ng-template')
+        include partials/post-list
+    script#template-post-edit(type='text/ng-template')
+        include partials/post-edit
 block content
     h1= title
-    p Welcome to #{title}
-    section
-        h2 Liste des articles
-        article(ng-repeat='post in PostListService.list | orderBy:"date" track by post._id', post='')
-            h3 {{ post.title }}
-            p {{ post.date }}
-            p {{ post._id }}
-            div
-                button(ng-hide='postController.$editing',ng-click='postController.edit(post)') Edit
-                div(ng-if='postController.$editing')
-                    form(ng-submit='postController.save(editedPost)')
-                        input(ng-model='editedPost.title')
-                        input(type='submit',value='Save')
-                    button(ng-click='postController.cancel()') Cancel
-            button(ng-click='postController.delete(post)') Delete
-        article(post='')
-            button(ng-hide='postController.$editing',ng-click='postController.edit(post)') Create
-            form(ng-if='postController.$editing',ng-submit='postController.save(editedPost)')
-                input(ng-model='editedPost.title')
-                input(type='submit',value='Create')
+    div(ui-view, class='ng-cloak')
+            

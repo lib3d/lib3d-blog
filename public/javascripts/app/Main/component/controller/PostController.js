@@ -3,45 +3,43 @@ define([], function() {
     /**
      *
      * @param $scope
+     * @param {$state} $state
+     * @param {$stateParams} $stateParams
      * @param {Post} Post
      * @param {PostListService} PostListService
      * @constructor
      */
-    function PostController($scope, Post, PostListService) {
+    function PostController($scope, $state, $stateParams, Post, PostListService) {
         this.$scope = $scope;
+        this.$state = $state;
         this.Post = Post;
         this.PostListService = PostListService;
-        this.$editing = false;
+
+        if($stateParams.id) {
+            var self = this
+            PostListService.getPostById($stateParams.id).then(function (post) {
+                $scope.editedPost = post;
+            });
+        } else {
+            $scope.editedPost = new Post();
+        }
     }
 
-    PostController.prototype.edit = function(post) {
-        this.$scope.editedPost = post ? new this.Post(post) : new this.Post();
-        this.$editing = true;
-    };
-
-    PostController.prototype.save = function(post) {
+    PostController.prototype.save = function() {
         var self = this;
-        post.$save().then(function(response) {
-            self.PostListService.fetch();
-            self.$editing = false;
+        this.$scope.editedPost.$save().then(function(post) {
+            self.$state.transitionTo('post-list');
         });
     };
 
-    PostController.prototype.delete = function(post) {
+    PostController.prototype.delete = function() {
         var self = this;
-        post.$delete(post).then(function(response) {
+        post.$delete(this.$scope.editedPost).then(function(response) {
             self.PostListService.fetch();
         });
     };
-    
-    PostController.prototype.cancel = function(post) {
-        this.$editing = false;
-        this.$scope.editedPost = null;
-    };
 
-    PostController.$inject = ['$scope', 'Post', 'PostListService'];
-    
-    
+    PostController.$inject = ['$scope', '$state', '$stateParams', 'Post', 'PostListService'];
 
     return PostController;
 

@@ -6,6 +6,12 @@ exports.postList = function(req, res) {
     });
 };
 
+exports.postGet = function(req, res) {
+    Post.findOne({ _id: req.params._id }, function(err, post) {
+        res.end(JSON.stringify(post));
+    });
+};
+
 exports.postSave = function(req, res) {
     var _id = req.params._id;
     if(_id) {

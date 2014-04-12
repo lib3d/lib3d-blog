@@ -1,0 +1,3 @@
+div.post-list
+    article.post(post-show,ng-repeat='post in PostListService.list | orderBy:"date" track by post._id')
+    button.post-create(ng-click='postListController.create()') Create

@@ -3,23 +3,15 @@ define([], function() {
     /**
      *
      * @param {$scope} $scope
-     * @param {Post} Post
+     * @param {$state} $state
      * @constructor
      */
-    function AppController($scope, PostListService) {
+    function AppController($scope, $state) {
         this.$scope = $scope;
-        this.PostListService = PostListService;
-
-        $scope.PostListService = PostListService;
-
-        this.fetchPostList();
+        this.$state = $state;
     }
 
-    AppController.prototype.fetchPostList = function() {
-        this.PostListService.fetch();
-    };
-
-    AppController.$inject = ['$scope', 'PostListService'];
+    AppController.$inject = ['$scope', '$state'];
 
     return AppController;
 });
