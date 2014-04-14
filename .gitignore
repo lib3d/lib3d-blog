@@ -30,6 +30,9 @@ public/components
 # r.js build
 public/build
 
+# compiled css
+public/stylesheets/*.css
+
 # Idea config
 .idea
 
