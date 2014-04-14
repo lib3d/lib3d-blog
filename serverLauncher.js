@@ -22,6 +22,7 @@ module.exports = function() {
         app.use(express.methodOverride());
         app.use(app.router);
         app.use(require('less-middleware')({ src: path.join(__dirname, 'public'), sourceMap: true }));
+        app.use(express.compress());
         app.use(express.static(path.join(__dirname, 'public')));
     });
 
