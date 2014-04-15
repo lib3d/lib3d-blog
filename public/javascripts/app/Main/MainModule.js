@@ -2,16 +2,16 @@ define(
     [
         'angular',
 
-        './component/controller/AppController',
-        './component/controller/PostListController',
-        './component/controller/PostController',
-        './component/resource/Post',
-        './component/service/PostListService',
-        './component/directive/postShowDirective',
-        './component/directive/postListDirective',
-        './component/directive/postEditDirective',
+        'app/Main/component/controller/AppController',
+        'app/Main/component/controller/PostListController',
+        'app/Main/component/controller/PostController',
+        'app/Main/component/resource/Post',
+        'app/Main/component/service/PostListService',
+        'app/Main/component/directive/postShowDirective',
+        'app/Main/component/directive/postListDirective',
+        'app/Main/component/directive/postEditDirective',
 
-        './config/routing'
+        'app/Main/config/routing'
     ],
     function(
         angular,

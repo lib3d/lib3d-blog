@@ -1,0 +1,18 @@
+define(['common', 'blog'], function() {
+    require(['angular', 'angular-resource', 'angular-ui-router', 'MainModule'], function(angular){
+
+        angular.module('lib3d', ['main']);
+
+        angular.bootstrap(document.body, ['lib3d']);
+        document.body.setAttribute('ng-app', 'lib3d');
+
+        function updateCache() {
+            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+                window.location.reload();
+            }
+        }
+
+        window.applicationCache.addEventListener('updateready', updateCache, false);
+        updateCache();
+    });
+});
