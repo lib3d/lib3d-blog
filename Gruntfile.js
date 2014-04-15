@@ -40,16 +40,20 @@ module.exports = function(grunt) {
         requirejs: {
             compile: {
                 options: {
-                    mainConfigFile: [
-                        'public/javascripts/common.js',
-                        'public/javascripts/blog.js'
-                    ],
-                    dir: 'public/build/',
+                    appDir: './public/javascripts/',
+                    baseUrl: './',
+                    dir: './public/build/',
                     optimize: 'uglify2',
                     preserveLicenseComments: false,
                     generateSourceMaps: true,
                     skipDirOptimize: true,
                     removeCombined: true,
+
+                    mainConfigFile: [
+                        'public/javascripts/common.js',
+                        'public/javascripts/blog.js'
+                    ],
+
                     modules: [
                         {
                             name: 'common',
@@ -60,14 +64,14 @@ module.exports = function(grunt) {
                                 'angular-ui-router'
                             ],
                             override: {
-                                generateSourceMaps: true,
+                                generateSourceMaps: false,
                                 optimize: 'none'
                             }
                         },
                         {
                             name: 'blog',
                             include: [
-                                'app/Main/MainModule'
+                                'MainModule'
                             ],
                             exclude: [
                                 'common'
