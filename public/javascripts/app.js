@@ -1,5 +1,5 @@
 define(['common', 'blog'], function() {
-    require(['angular', 'angular-resource', 'angular-ui-router', 'MainModule'], function(angular){
+    require(['angular', 'MainModule'], function(angular){
 
         angular.module('lib3d', ['main']);
 
