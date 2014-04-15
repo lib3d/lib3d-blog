@@ -1,0 +1,11 @@
+{
+    "development": {
+        "options": {
+            "paths": ["<%= dirs.public %>/stylesheets"],
+            "sourceMap": true
+        },
+        "files": {
+            "public/stylesheets/style.css": "<%= dirs.public %>/stylesheets/style.less"
+        }
+    }
+}

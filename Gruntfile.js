@@ -2,8 +2,25 @@
 
 module.exports = function(grunt) {
     grunt.initConfig({
-        publicDir: './public',
-        viewsDir: './views',
+
+        // factorize paths in variables
+        dirs: {
+            'public': './public',
+            'views': './views'
+        },
+
+        // require static configs from json files
+        requirejs: grunt.file.readJSON('grunt-requirejs.json'),
+        manifest: grunt.file.readJSON('grunt-manifest.json'),
+        less: grunt.file.readJSON('grunt-less.json'),
+
+        // config clean tasks
+        clean: {
+            js: ['<%= dirs.public %>/build'],
+            css: ['<%= dirs.public %>/stylesheets/*.css']
+        },
+
+        // config watch tasks
         watch: {
             configFiles: {
                 files: ['./Gruntfile.js'],
@@ -15,7 +32,7 @@ module.exports = function(grunt) {
                 }
             },
             javascripts: {
-                files: ['<%= publicDir %>/javascripts/**/*.js'],
+                files: ['<%= dirs.public %>/javascripts/**/*.js'],
                 tasks: ['assets:js'],
                 options: {
                     livereload: true,
@@ -23,7 +40,7 @@ module.exports = function(grunt) {
                 }
             },
             stylesheets: {
-                files: ['<%= publicDir %>/stylesheets/**/*.less'],
+                files: ['<%= dirs.public %>/stylesheets/**/*.less'],
                 tasks: ['assets:css'],
                 options: {
                     livereload: true,
@@ -31,104 +48,28 @@ module.exports = function(grunt) {
                 }
             },
             views: {
-                files: ['<%= viewsDir %>/**/*.jade'],
+                files: ['<%= dirs.views %>/**/*.jade'],
                 tasks: ['manifest'],
                 options: {
                     livereload: true,
                     debounceDelay: 1000
                 }
             }
-        },
-        requirejs: {
-            compile: {
-                options: {
-                    appDir: '<%= publicDir %>/javascripts/',
-                    baseUrl: './',
-                    dir: '<%= publicDir %>/build/',
-                    optimize: 'uglify2',
-                    preserveLicenseComments: false,
-                    generateSourceMaps: true,
-                    skipDirOptimize: true,
-                    removeCombined: true,
-
-                    mainConfigFile: [
-                        '<%= publicDir %>/javascripts/common.js',
-                        '<%= publicDir %>/javascripts/blog.js'
-                    ],
-
-                    modules: [
-                        {
-                            name: 'common',
-                            include: [
-                                'jQuery',
-                                'angular',
-                                'angular-resource',
-                                'angular-ui-router'
-                            ],
-                            override: {
-                                generateSourceMaps: false,
-                                optimize: 'none'
-                            }
-                        },
-                        {
-                            name: 'blog',
-                            include: [
-                                'MainModule'
-                            ],
-                            exclude: [
-                                'common'
-                            ]
-                        }
-                    ]
-                }
-            }
-        },
-        manifest: {
-            generate: {
-                options: {
-                    basePath: '<%= publicDir %>/',
-                    cache: ['../'],
-                    verbose: true,
-                    timestamp: true,
-                    hash: true,
-                    preferOnline: true
-                },
-                src: [
-                    'components/requirejs/require.js',
-                    'build/*.js',
-                    'build/*.map',
-                    'stylesheets/*.css'
-                ],
-                dest: '<%= publicDir %>/manifest.appcache'
-            }
-        },
-        less: {
-            development: {
-                options: {
-                    paths: ['<%= publicDir %>/stylesheets'],
-                    sourceMap: true
-                },
-                files: {
-                    'public/stylesheets/style.css': '<%= publicDir %>/stylesheets/style.less'
-                }
-            }
-        },
-        clean: {
-            js: ['build'],
-            css: ['<%= publicDir %>/stylesheets/*.css']
         }
     });
 
+    // load npm tasks
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-manifest');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('assets:all', ['clean', 'requirejs', 'less:development', 'manifest']);
-
+    // register tasks
     grunt.registerTask('assets:css', ['clean:css', 'less:development', 'manifest']);
     grunt.registerTask('assets:js', ['clean:js', 'requirejs', 'manifest']);
+    grunt.registerTask('assets:all', ['clean', 'requirejs', 'less:development', 'manifest']);
 
+    // register default task
     grunt.registerTask('default', ['assets:all', 'watch']);
 };
