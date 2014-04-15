@@ -11,7 +11,9 @@ define(
         'app/Main/component/directive/postListDirective',
         'app/Main/component/directive/postEditDirective',
 
-        'app/Main/config/routing'
+        'app/Main/config/routing',
+
+        'angular-resource', 'angular-ui-router'
     ],
     function(
         angular,
