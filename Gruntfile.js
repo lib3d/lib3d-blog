@@ -108,15 +108,9 @@ module.exports = function(grunt) {
                     paths: ['<%= publicDir %>/stylesheets'],
                     sourceMap: true
                 },
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= publicDir %>/stylesheets',
-                        src: ['*.less'],
-                        dest: '<%= publicDir %>/stylesheets',
-                        ext: '.css'
-                    }
-                ]
+                files: {
+                    'public/stylesheets/style.css': '<%= publicDir %>/stylesheets/style.less'
+                }
             }
         },
         clean: {
