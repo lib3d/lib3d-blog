@@ -1,9 +1,11 @@
-define([], function() {
+define([], function () {
+    "use strict";
 
     /**
      *
      * @param {$scope} $scope
-     * @param {Post} Post
+     * @param {$state} $state
+     * @param {PostListService} PostListService
      * @constructor
      */
     function PostListController($scope, $state, PostListService) {
@@ -20,17 +22,17 @@ define([], function() {
         this.PostListService.fetch();
     };
 
-    PostListController.prototype.edit = function(post) {
+    PostListController.prototype.edit = function (post) {
         this.$state.transitionTo('post-edit', { id: post._id });
     };
 
-    PostListController.prototype.create = function(post) {
+    PostListController.prototype.create = function () {
         this.edit({});
     };
 
-    PostListController.prototype.delete = function(post) {
+    PostListController.prototype['delete'] = function (post) {
         var self = this;
-        post.$delete(post).then(function(response) {
+        post.$delete(post).then(function () {
             self.PostListService.fetch();
         });
     };

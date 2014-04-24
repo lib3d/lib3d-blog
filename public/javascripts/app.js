@@ -1,5 +1,7 @@
-define(['common', 'blog'], function() {
-    require(['angular', 'MainModule'], function(angular){
+define(['common', 'blog'], function () {
+    "use strict";
+
+    require(['angular', 'MainModule'], function (angular) {
 
         angular.module('lib3d', ['main']);
 
@@ -7,7 +9,7 @@ define(['common', 'blog'], function() {
         document.body.setAttribute('ng-app', 'lib3d');
 
         function updateCache() {
-            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+            if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
                 window.location.reload();
             }
         }

@@ -1,4 +1,5 @@
-define([], function() {
+define([], function () {
+    "use strict";
 
     function routing($stateProvider, $urlRouterProvider) {
         $stateProvider.state('main', {
@@ -20,7 +21,7 @@ define([], function() {
                     templateUrl: 'template-page-post-list'
                 }
             }
-        })
+        });
 
         $stateProvider.state('post-edit', {
             parent: 'main',
@@ -38,6 +39,5 @@ define([], function() {
     routing.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     return routing;
-
 
 });
