@@ -1,16 +1,8 @@
 extends layout
-block ng-template
-    script#template-page-post-list(type='text/ng-template')
-        include partials/pages/post-list
-    script#template-page-post-edit(type='text/ng-template')
-        include partials/pages/post-edit
-    script#template-post-show(type='text/ng-template')
-        include partials/post-show
-    script#template-post-list(type='text/ng-template')
-        include partials/post-list
-    script#template-post-edit(type='text/ng-template')
-        include partials/post-edit
-block content
-    h1= title
-    div(ui-view, class='ng-cloak')
+
+append stylesheets
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+append content
+    h1= title + ' - ' + process.env.NODE_ENV
             

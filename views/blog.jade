@@ -1,0 +1,22 @@
+extends index
+
+block require
+    script(data-main='/build/javascripts/app',src='/components/requirejs/require.js')
+
+append ng-template
+    script#template-page-post-list(type='text/ng-template')
+        include partials/pages/post-list
+    script#template-page-post-edit(type='text/ng-template')
+        include partials/pages/post-edit
+    script#template-post-show(type='text/ng-template')
+        include partials/post-show
+    script#template-post-list(type='text/ng-template')
+        include partials/post-list
+    script#template-post-edit(type='text/ng-template')
+        include partials/post-edit
+
+append stylesheets
+    link(rel='stylesheet', href='/stylesheets/post.css')
+
+append content
+    div(ui-view, class='ng-cloak')

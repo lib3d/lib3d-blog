@@ -1,4 +1,4 @@
-define(['common', 'blog'], function () {
+require(['common', 'blog'], function () {
     "use strict";
 
     require(['angular', 'MainModule'], function (angular) {

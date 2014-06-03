@@ -20,5 +20,20 @@ require.config({
         'angular-ui-router': {
             deps: ['angular']
         }
-    }
+    },
+    "modules": [
+        {
+            "name": "common",
+            "include": [
+                "jQuery",
+                "angular",
+                "angular-resource",
+                "angular-ui-router"
+            ],
+            "override": {
+                "generateSourceMaps": false,
+                "optimize": "none"
+            }
+        }
+    ]
 });

@@ -2,10 +2,17 @@
     "development": {
         "options": {
             "paths": ["<%= dirs.public %>/stylesheets"],
-            "sourceMap": true
+            "sourceMap": true,
+            "cleancss": true
         },
-        "files": {
-            "public/stylesheets/style.css": "<%= dirs.public %>/stylesheets/style.less"
-        }
+        "files": [
+            {
+                "expand": true,
+                "cwd": "public/stylesheets/",
+                "src": ["**/*.less"],
+                "dest": "public/stylesheets/",
+                "ext": ".css"
+            }
+        ]
     }
 }

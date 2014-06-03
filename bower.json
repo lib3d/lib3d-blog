@@ -19,5 +19,6 @@
     "requirejs": "~2.1.11",
     "angular-resource": "~1.2.16",
     "angular-ui-router": "~0.2.10"
-  }
+  },
+  "devDependencies": {}
 }

@@ -1,9 +1,9 @@
 {
     "compile": {
         "options": {
-            "appDir": "<%= dirs.public %>/javascripts/",
-            "baseUrl": "./",
-            "dir": "<%= dirs.public %>/build/",
+            "appDir": "public",
+            "baseUrl": "javascripts",
+            "dir": "public/build",
             "optimize": "uglify2",
             "preserveLicenseComments": false,
             "generateSourceMaps": true,
@@ -11,33 +11,8 @@
             "removeCombined": true,
 
             "mainConfigFile": [
-                "<%= dirs.public %>/javascripts/common.js",
-                "<%= dirs.public %>/javascripts/blog.js"
-            ],
-
-            "modules": [
-                {
-                    "name": "common",
-                    "include": [
-                        "jQuery",
-                        "angular",
-                        "angular-resource",
-                        "angular-ui-router"
-                    ],
-                    "override": {
-                        "generateSourceMaps": false,
-                        "optimize": "none"
-                    }
-                },
-                {
-                    "name": "blog",
-                    "include": [
-                        "MainModule"
-                    ],
-                    "exclude": [
-                        "common"
-                    ]
-                }
+                "public/javascripts/common.js",
+                "public/javascripts/blog.js"
             ]
         }
     }

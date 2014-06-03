@@ -1,3 +1,4 @@
+/* jshint node:true */
 "use strict";
 
 var express = require('express');
@@ -31,6 +32,7 @@ module.exports = function() {
     });
 
     app.get('/', routes.index);
+    app.get('/blog', routes.blog);
     app.get('/users', user.list);
 
     var httpServer = http.createServer(app);

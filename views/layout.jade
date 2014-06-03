@@ -3,9 +3,9 @@ html(manifest='manifest.appcache')
     head
         title= title + ' - ' + process.env.NODE_ENV
         link(rel='icon', href='images/favicon2.ico')
-        link(rel='stylesheet', href='/stylesheets/style.css')
         script(src='//localhost:35729/livereload.js')
-        script(data-main='/build/app',src='/components/requirejs/require.js')
+        block require
+        block stylesheets
     body
         block ng-template
         block content

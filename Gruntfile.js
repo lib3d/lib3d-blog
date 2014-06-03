@@ -1,4 +1,5 @@
-'use strict';
+/* jshint node:true */
+"use strict";
 
 module.exports = function(grunt) {
     grunt.initConfig({
@@ -16,43 +17,43 @@ module.exports = function(grunt) {
 
         // config clean tasks
         clean: {
-            js: ['<%= dirs.public %>/build'],
-            css: ['<%= dirs.public %>/stylesheets/*.css']
+            js: ['public/build/*'],
+            css: ['public/stylesheets/*.css']
         },
 
         // config watch tasks
         watch: {
             configFiles: {
-                files: ['./Gruntfile.js'],
+                files: ['Gruntfile.js','grunt-*.json'],
                 tasks: ['assets:all'],
                 options: {
-                    reload: true,
-                    debounceDelay: 1000,
-                    livereload: true
+                    reload: true
                 }
             },
             javascripts: {
-                files: ['<%= dirs.public %>/javascripts/**/*.js'],
-                tasks: ['assets:js'],
-                options: {
-                    livereload: true,
-                    debounceDelay: 1000
-                }
+                files: ['public/javascripts/**/*.js'],
+                tasks: ['assets:js']
             },
             stylesheets: {
-                files: ['<%= dirs.public %>/stylesheets/**/*.less'],
-                tasks: ['assets:css'],
-                options: {
-                    livereload: true,
-                    debounceDelay: 1000
-                }
+                files: ['public/stylesheets/**/*.less'],
+                tasks: ['assets:css']
             },
             views: {
-                files: ['<%= dirs.views %>/**/*.jade'],
+                files: ['views/**/*.jade'],
                 tasks: ['manifest'],
                 options: {
                     livereload: true,
-                    debounceDelay: 1000
+                    debounceDelay: 300
+                }
+            },
+            livereload: {
+                files: [
+                    'public/stylesheets/*.css',
+                    'public/build/*.js'
+                ],
+                options: {
+                    livereload: true,
+                    debounceDelay: 300
                 }
             }
         }
