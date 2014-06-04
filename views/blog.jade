@@ -1,7 +1,7 @@
 extends index
 
 block require
-    script(data-main='/build/javascripts/app',src='/components/requirejs/require.js')
+    script(data-main='/build/require/app',src='/components/requirejs/require.js')
 
 append ng-template
     script#template-page-post-list(type='text/ng-template')
@@ -16,7 +16,7 @@ append ng-template
         include partials/post-edit
 
 append stylesheets
-    link(rel='stylesheet', href='/build-stylesheets/post.css')
+    link(rel='stylesheet', href='/build/stylesheets/post.css')
 
 append content
     div(ui-view, class='ng-cloak')

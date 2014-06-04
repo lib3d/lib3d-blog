@@ -43,8 +43,8 @@ module.exports = function(grunt) {
             },
             livereload: {
                 files: [
-                    'public/build-stylesheets/*.css',
-                    'public/build/*.js',
+                    'public/build/stylesheets/*.css',
+                    'public/build/require/*.js',
                     'views/**/*.jade'
                 ],
                 options: {

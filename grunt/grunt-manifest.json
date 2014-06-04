@@ -10,9 +10,9 @@
         },
         "src": [
             "components/requirejs/require.js",
-            "build/javascripts/*.js",
-            "build/javascripts/*.map",
-            "stylesheets/*.css"
+            "build/require/*.js",
+            "build/require/*.map",
+            "build/stylesheets/*.css"
         ],
         "dest": "public/manifest.appcache"
     }

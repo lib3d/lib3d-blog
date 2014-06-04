@@ -27,11 +27,8 @@ node_modules
 # Bower components
 public/components
 
-# r.js build
+# r.js optimized js, css and images
 public/build
-
-# compiled css
-public/stylesheets/*.css
 
 # Idea config
 .idea
