@@ -1,7 +1,7 @@
 {
     "generate": {
         "options": {
-            "basePath": "<%= dirs.public %>/",
+            "basePath": "public/",
             "cache": ["../"],
             "verbose": true,
             "timestamp": true,
@@ -10,10 +10,10 @@
         },
         "src": [
             "components/requirejs/require.js",
-            "build/*.js",
-            "build/*.map",
+            "build/javascripts/*.js",
+            "build/javascripts/*.map",
             "stylesheets/*.css"
         ],
-        "dest": "<%= dirs.public %>/manifest.appcache"
+        "dest": "public/manifest.appcache"
     }
 }

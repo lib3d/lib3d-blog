@@ -2,6 +2,7 @@
     "compile": {
         "options": {
             "appDir": "public",
+            "fileExclusionRegExp": "^(build)",
             "baseUrl": "javascripts",
             "dir": "public/build",
             "optimize": "uglify2",

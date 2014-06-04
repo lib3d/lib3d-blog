@@ -1,0 +1,37 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #0A0A0A;
+  color: #CFCFCF;
+}
+a {
+  color: #00B7FF;
+}
+.ng-cloak {
+  visibility: hidden;
+}
+button,
+input[type=submit] {
+  height: 24px;
+  border: 1px solid lightgrey;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin: 3px;
+  background: black;
+  color: white;
+}
+.clear {
+  clear: both;
+}
+.v-middle {
+  vertical-align: middle;
+}
+.pos-rel {
+  position: relative;
+}
+.full-width {
+  width: 100%;
+  padding: 0;
+}
+/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22sources%22%3A%5B%22public%2Fstylesheets%2Fstyle.less%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAAA%3BEACE%2CaAAA%3BEACA%2CWAAW%2C6CAAX%3BEACA%2CyBAAA%3BEACA%2CcAAA%3B%3BAAGF%3BEACE%2CcAAA%3B%3BAAGF%3BEACE%2CkBAAA%3B%3BAAGF%3BAAAQ%2CKAAK%3BEACX%2CYAAA%3BEACA%2C2BAAA%3BEACA%2C0BAAA%3BEACA%2CuBAAA%3BEACA%2CkBAAA%3BEACA%2CWAAA%3BEACA%2CiBAAA%3BEACA%2CYAAA%3B%3BAAGF%3BEACE%2CWAAA%3B%3BAAGF%3BEACE%2CsBAAA%3B%3BAAGF%3BEACE%2CkBAAA%3B%3BAAGF%3BEACE%2CWAAA%3BEACA%2CUAAA%22%7D */

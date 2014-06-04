@@ -1,16 +1,17 @@
 {
     "development": {
         "options": {
-            "paths": ["<%= dirs.public %>/stylesheets"],
+            "paths": ["public/stylesheets"],
             "sourceMap": true,
-            "cleancss": true
+            "cleancss": false,
+            "strictImports": false
         },
         "files": [
             {
                 "expand": true,
                 "cwd": "public/stylesheets/",
-                "src": ["**/*.less"],
-                "dest": "public/stylesheets/",
+                "src": ["**/*.less", "!(sprites)/*.less"],
+                "dest": "public/build-stylesheets/",
                 "ext": ".css"
             }
         ]
