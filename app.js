@@ -1,3 +1,4 @@
+/* jshint node:true */
 process.env.NODE_ENV = process.argv[2] || 'no_env';
 
 var serverLauncher = require('./serverLauncher');

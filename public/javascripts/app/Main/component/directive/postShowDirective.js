@@ -1,13 +1,14 @@
-define([], function() {
+define([], function () {
+    "use strict";
 
-    function postDShowirective() {
+    function postShowirective() {
         return {
             templateUrl: 'template-post-show'
         };
     }
 
-    postDShowirective.$inject = [];
+    postShowirective.$inject = [];
 
-    return postDShowirective;
+    return postShowirective;
 
 });

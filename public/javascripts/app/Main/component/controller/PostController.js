@@ -1,4 +1,5 @@
-define([], function() {
+define([], function () {
+    "use strict";
 
     /**
      *
@@ -15,8 +16,7 @@ define([], function() {
         this.Post = Post;
         this.PostListService = PostListService;
 
-        if($stateParams.id) {
-            var self = this
+        if ($stateParams.id) {
             PostListService.getPostById($stateParams.id).then(function (post) {
                 $scope.editedPost = post;
             });
@@ -25,16 +25,16 @@ define([], function() {
         }
     }
 
-    PostController.prototype.save = function() {
+    PostController.prototype.save = function () {
         var self = this;
-        this.$scope.editedPost.$save().then(function(post) {
+        this.$scope.editedPost.$save().then(function () {
             self.$state.transitionTo('post-list');
         });
     };
 
-    PostController.prototype.delete = function() {
+    PostController.prototype['delete'] = function () {
         var self = this;
-        post.$delete(this.$scope.editedPost).then(function(response) {
+        this.$scope.editedPost.$delete().then(function () {
             self.PostListService.fetch();
         });
     };

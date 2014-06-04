@@ -1,4 +1,5 @@
 define(
+
     [
         'angular',
 
@@ -15,7 +16,7 @@ define(
 
         'angular-resource', 'angular-ui-router'
     ],
-    function(
+    function (
         angular,
 
         AppController,
@@ -28,7 +29,8 @@ define(
         postEditDirective,
 
         routing
-        ) {
+    ) {
+        "use strict";
 
         var MainModule = angular.module('main', ['ngResource', 'ui.router']);
 

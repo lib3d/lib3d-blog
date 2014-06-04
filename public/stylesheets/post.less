@@ -1,3 +1,5 @@
+@import "sprites/sprites-post";
+
 .post {
   background-color: #2D2D2D;
   padding: 10px;
@@ -21,6 +23,14 @@
     height: 42px;
   }
 
+  .post-edit {
+    .sprite(@post-edit);
+  }
+
+  .post-delete {
+    .sprite(@post-delete);
+  ;
+  }
   .post-action-wrapper {
     float: right;
     top: 0;

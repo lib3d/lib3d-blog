@@ -1,0 +1,19 @@
+{
+    "development": {
+        "options": {
+            "paths": ["public/stylesheets"],
+            "sourceMap": true,
+            "cleancss": false,
+            "strictImports": false
+        },
+        "files": [
+            {
+                "expand": true,
+                "cwd": "public/stylesheets/",
+                "src": ["**/*.less", "!(sprites)/*.less"],
+                "dest": "public/build/stylesheets/",
+                "ext": ".css"
+            }
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "post": {
+        "src": "public/images/sprites/post/*.png",
+        "destImg": "public/build/images/sprites/sprite-post.png",
+        "destCSS": "public/stylesheets/sprites/sprites-post.less",
+        "cssOpts": {
+            "cssFormat": "less"
+        }
+    }
+}
