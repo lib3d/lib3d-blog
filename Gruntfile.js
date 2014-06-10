@@ -12,15 +12,16 @@ module.exports = function(grunt) {
 
         // config clean tasks
         clean: {
-            js: ['public/build/*'],
-            css: ['public/build-stylesheets/*.css']
+            require: ['public/build/require/'],
+            css: ['public/build/stylesheets/'],
+            images: ['public/build/images/']
         },
 
         // config watch tasks
         watch: {
             configFiles: {
                 files: ['Gruntfile.js','grunt/grunt-*.json'],
-                tasks: ['assets:all'],
+                tasks: ['development'],
                 options: {
                     reload: true
                 }
@@ -31,7 +32,7 @@ module.exports = function(grunt) {
             },
             stylesheets: {
                 files: ['public/stylesheets/**/*.less', '!public/stylesheets/sprites/*.less'],
-                tasks: ['assets:css']
+                tasks: ['assets:cssWithoutSprite']
             },
             sprites: {
                 files: ['public/images/sprites/**/*.*'],
@@ -65,11 +66,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-spritesmith');
 
     // register tasks
-    grunt.registerTask('assets:css', ['clean:css', 'sprite', 'less:development', 'manifest']);
-    grunt.registerTask('assets:js', ['clean:js', 'requirejs', 'manifest']);
-    grunt.registerTask('assets:all', ['clean', 'requirejs', 'sprite', 'less:development', 'manifest']);
+    grunt.registerTask('assets:css', ['clean:css', 'clean:images', 'sprite', 'less:development', 'manifest']);
+    grunt.registerTask('assets:cssWithoutSprite', ['clean:css', 'less:development', 'manifest']);
+    grunt.registerTask('assets:js', ['clean:require', 'requirejs', 'manifest']);
+    grunt.registerTask('development', ['clean', 'requirejs:development', 'sprite', 'less:development', 'manifest']);
+
+    grunt.registerTask('production', ['clean', 'requirejs:production', 'sprite', 'less:production', 'manifest']);
 
 
     // register default task
-    grunt.registerTask('default', ['assets:all', 'watch']);
+    grunt.registerTask('default', ['development', 'watch']);
 };

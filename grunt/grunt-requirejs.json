@@ -1,13 +1,32 @@
 {
-    "compile": {
+    "development": {
+        "options": {
+            "appDir": "public/javascripts",
+            "fileExclusionRegExp": "^(build)",
+            "baseUrl": "./",
+            "dir": "public/build/require",
+            "optimize": "none",
+            "preserveLicenseComments": false,
+            "generateSourceMaps": true,
+            "skipDirOptimize": true,
+            "removeCombined": true,
+
+            "mainConfigFile": [
+                "public/javascripts/common.js",
+                "public/javascripts/blog.js"
+            ]
+        }
+    },
+
+    "production": {
         "options": {
             "appDir": "public/javascripts",
             "fileExclusionRegExp": "^(build)",
             "baseUrl": "./",
             "dir": "public/build/require",
             "optimize": "uglify2",
-            "preserveLicenseComments": false,
-            "generateSourceMaps": true,
+            "preserveLicenseComments": true,
+            "generateSourceMaps": false,
             "skipDirOptimize": true,
             "removeCombined": true,
 

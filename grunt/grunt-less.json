@@ -15,5 +15,23 @@
                 "ext": ".css"
             }
         ]
+    },
+
+    "production": {
+        "options": {
+            "paths": ["public/stylesheets"],
+            "sourceMap": false,
+            "cleancss": true,
+            "strictImports": false
+        },
+        "files": [
+            {
+                "expand": true,
+                "cwd": "public/stylesheets/",
+                "src": ["**/*.less", "!(sprites)/*.less"],
+                "dest": "public/build/stylesheets/",
+                "ext": ".css"
+            }
+        ]
     }
 }
