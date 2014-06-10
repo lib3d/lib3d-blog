@@ -1,5 +1,16 @@
 # lib3d-blog
 
+## Introduction
+
+POC to experiment grunt as the assets management automation tool, combined with:
+* requirejs optimizer,
+* less preprocessor,
+* automatic sprite generation,
+* application cache manifest,
+* an angular application, 
+* an express server with mongoose,
+* the whole (except server application) with livereload.
+
 ## Installation
 
 ### MongoDB
