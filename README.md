@@ -1,18 +1,43 @@
-lib3d-blog
-==========
+# lib3d-blog
 
-**Requirements**
+## Installation
 
-`mongod` must be launched on localhost:27017.
+### MongoDB
 
-`npm install && bower install` must be executed.
+Intall MongoDB. You may need to install Python on Windows for node canvas used by the `spritesmith` (sprite generator).
 
-`grunt` must be executed. The default task contains require js optimization and watchers:
+`mongod` has to be running on localhost:27017.
+
+### Node and npm
+
+This is tested against at least node v0.10.28.
+
+Run:
+
+```
+npm install -g grunt grunt-cli bower
+npm install --link
+bower install
+```
+
+## Start
+
+### Server
+
+Run the server: `npm start`
+
+### Grunt
+
+Run the default grunt task: `grunt`.
+
+The default task contains develoment compilations (same as `grunt development`) and watchers:
 
 * on the Gruntfile itself to reconfigure watchers,
-* on js assets to rerun require js optimization.
+* on js assets to rerun require js optimization,
+* on less files to rerun less compilation,
+* on images in watched sprite folder to rebuild the sprite png and less file an rerun less compilation,
+* on views to rebuild the application cache manifest.
 
+`grunt development` and `grunt production` are single-run commands to build assets in development and production environments.
 
-**Usage**
-
-Run `npm start` and connect to http://localhost:3000.
+Connect to `http://localhost:3000`.
