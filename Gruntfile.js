@@ -68,7 +68,7 @@ module.exports = function(grunt) {
     // register tasks
     grunt.registerTask('assets:css', ['clean:css', 'clean:images', 'sprite', 'less:development', 'manifest']);
     grunt.registerTask('assets:cssWithoutSprite', ['clean:css', 'less:development', 'manifest']);
-    grunt.registerTask('assets:js', ['clean:require', 'requirejs', 'manifest']);
+    grunt.registerTask('assets:js', ['clean:require', 'requirejs:development', 'manifest']);
     grunt.registerTask('development', ['clean', 'requirejs:development', 'sprite', 'less:development', 'manifest']);
 
     grunt.registerTask('production', ['clean', 'requirejs:production', 'sprite', 'less:production', 'manifest']);
