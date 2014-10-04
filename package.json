@@ -19,10 +19,21 @@
     "grunt-manifest": "~0.4.0"
   },
   "devDependencies": {
-    "grunt-contrib-requirejs": "~0.4.4",
-    "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-less": "~0.11.0",
-    "grunt-spritesmith": "~2.1.0"
+    "grunt-contrib-requirejs": "~0.4.4",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-spritesmith": "^2.20.0",
+    "istanbul": "^0.3.2",
+    "karma": "^0.12.24",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-coverage": "^0.2.6",
+    "karma-junit-reporter": "^0.2.2",
+    "karma-mocha": "^0.1.9",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-requirejs": "^0.2.2",
+    "karma-sinon-chai": "^0.2.0",
+    "karma-story-reporter": "^0.2.2",
+    "mocha": "^1.21.4"
   }
 }
